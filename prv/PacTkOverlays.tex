@@ -287,7 +287,7 @@ adopted for annotation text.
 
 
 
-\ifnum\value{page}=7{
+\ifnum\value{page}=8{
 \AtTextLowerLeft{\raisebox{515pt}{
 
 \begin{tikzpicture}
@@ -409,8 +409,51 @@ are conceptually relevant to the specific heading-word or -phrase.
 
 
 
+\ifnum\value{page}=10{
+\AtTextLowerLeft{\raisebox{355pt}{
 
-\ifnum\value{page}=8{
+\begin{tikzpicture}
+
+\node at (0,0) [text=black] {X};
+
+\begin{scope}[transform canvas={scale=0.6, shift={(24.6,24.5)}},overlay]
+
+\draw [rotate=20.9245, fill=white] (-1.5pt, 0pt) -- ++(up:5pt) -- ++(-5pt, -2pt) -- ++(6.5pt, 17pt)
+                      -- ++(6.5pt, -17pt) -- ++(-5pt, 2pt) -- ++(down:5pt) -- cycle;
+
+\end{scope}
+
+\end{tikzpicture}
+}}
+
+}\fi
+
+
+
+
+\ifnum\value{page}=7{
+\AtTextLowerLeft{\raisebox{155pt}{
+
+\begin{tikzpicture}
+
+\node at (0,0) [text=black] {X};
+
+\begin{scope}[transform canvas={scale=0.6, shift={(21.6,18.5)}},overlay]
+
+\draw [rotate=20.9245, fill=white] (-1.5pt, 0pt) -- ++(up:5pt) -- ++(-5pt, -2pt) -- ++(6.5pt, 17pt)
+                      -- ++(6.5pt, -17pt) -- ++(-5pt, 2pt) -- ++(down:5pt) -- cycle;
+
+\end{scope}
+
+\end{tikzpicture}
+}}
+
+}\fi
+
+
+
+
+\ifnum\value{page}=9{
 \AtTextLowerLeft{\raisebox{575pt}{
 
 \begin{tikzpicture}

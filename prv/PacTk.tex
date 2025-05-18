@@ -3,8 +3,8 @@
 
 \documentclass[11pt]{article}
 
-\usepackage[top=.8in, bottom=.6in, left=.56in, right=.45in, footskip=0pt,
-paperheight=14.12in,paperwidth=9.25in]{geometry}
+\usepackage[top=.8in, bottom=.7in, left=.56in, right=.45in, footskip=0pt,
+paperheight=14.16in,paperwidth=9.25in]{geometry}
 
 
 
@@ -27,7 +27,7 @@ paperheight=14.12in,paperwidth=9.25in]{geometry}
 \AddToShipoutPicture{%
 \ifnum\value{page}=12{
 \AtTextLowerLeft{
-\raisebox{66pt}{%
+\raisebox{73pt}{%
  \href{http://www.lingtechsys.com/videos/qmt-composite.mkv}{\parbox{.3\textwidth}{\includegraphics[scale=.4]{pm/qmt-composite.png}\\GIS}}%
  \hspace{10pt}\href{http://www.lingtechsys.com/videos/dhax-composite.mkv}{\parbox{.3\textwidth}{\includegraphics[scale=.255]{pm/dhax-composite.png}\\360\textdegree{} photography}}%
  \hspace{25pt}\href{http://www.lingtechsys.com/videos/xcsd-composite.mkv}{\parbox{.3\textwidth}{\includegraphics[scale=.35]{pm/xcsd-composite.png}\\Image Processing}}%
@@ -592,7 +592,7 @@ links to access the individual pages as desired.}
 
 \begin{figure}[ht]
 \includegraphics[scale=0.8]{fin/tox.png}
-\caption{Mapping \PDF{} pages to \SVG{} views for improved annotation support}
+\caption{Mapping PDF pages to SVG views for improved annotation support}
 \label{fig:ss4}
 \end{figure}
 
@@ -605,11 +605,22 @@ on the other hand, each page will potentially have its own web \URL{}, and links
 embedded in web resources (and also other \PDF{} documents).  Such web links can be useful for collaborative 
 editing as well as referencing pages in files already published.}
 
+
+
 \begin{figure}[ht]
 \includegraphics[scale=0.5]{fin/sah.png}
 \caption{A category-based web-accessible index table for SVG pages}
 \label{fig:ss5}
 \end{figure}
+
+\begin{figure}[t!]
+\includegraphics[scale=0.5]{fin/stark-mi.png}
+\includegraphics[scale=0.5]{fin/stark.png}
+\caption{Meta-Index Search through a Web Portal}
+\label{fig:ss6}
+\end{figure}
+
+
 
 %\vspace*{-1em}
 
@@ -628,18 +639,13 @@ convenient tool for curating data sets, particularly in contexts such as
 \GIS{} that often rely on a web interface for data acquisition; and for programming 
 dataset-backed simulations (especially when user input/gestures are involved).}
 
-\begin{figure}[ht]
-\includegraphics[scale=0.5]{fin/oct.png}
-\caption{Flexible range-select features}
-\label{fig:ss6}
-\end{figure}
-
 
 
 \sstitle{Use Case 5: Curating Meta-Indexes}
 
 \p{The benefits of indexes for enhancing local text search may certainly be extended to 
 more general web/database searches.}
+
 
 \p{Because \PacTk{} represents indexes via metadata, it is straightforward to merge 
 indexes from multiple documents into an aggregate database, also known as a 
@@ -655,6 +661,7 @@ they are currently reading but also for pages in other volumes stored alongside 
 in a book series or corpus archive.}
 
 
+
 \p{Hosting and curating a meta-index is facilitated by \PacTk{}'s structured 
 metadata format.  Because all books in a series/archive will share a metadata profile, 
 new indexes can be merged into a preexisting database as soon as they are finalized.  
@@ -664,6 +671,42 @@ such that \PDF{} viewers can query against a database when expanding local
 to meta-index searches.  Meta-index \API{}s could likewise be used for search front-ends 
 exposed to users via web pages for specific journals, book series, abstracts aggregators, 
 and analogous publishers' web content.}
+
+\p{Via conventional \q{forward indexing,} new documents become merged into composite 
+search \q{indexes} as soon as they are published.  The term \q{index} in this content 
+refers to word-by-word counts on the principle that the number of occurrences of some 
+word or phrase, in a given document, provides a rough measure of the document's 
+relevance to that word.  More refined algorithms can modulate relevance scores 
+by considering conceptual associations, and, in general, the phenomenon 
+of multiple expressions designating the same (or closely related) referents 
+(e.g., \q{the President} and \q{the White House}).  Actual book indexes, of course, 
+represent a more detailed model of such conceptual relationships because 
+authors/editors explicitly select a set of terms that are especially 
+significant for the material's theme/topic; and also consciously choose 
+which conceptual links to explicate (via \q{see also} clauses, in particular).  
+Meta-indexes can, of course, be layered on top of automatically-indexed 
+search engines.}
+
+\p{Whether or not meta-indexes work against a data set that includes a 
+full search-engine database, the information content of a typical meta-index 
+will be sufficiently large that query processing functionality would have 
+to be hosted on a publically-accessible server.  In many use-cases, a web- or 
+cloud-based meta-index would be accessed from a single \PDF{} file --- 
+we assume the reader initiates a meta-index search on the basis of 
+material they are reading in the local file --- in which case 
+remote queries, through an \API{}, could be sent and received 
+by a conformant \PDF{} viewer.  In such contexts, users would 
+not see the web/cloud content directly.  However, publishers 
+have good reason to also wrap meta-index access in a 
+modern-style web site, for the alternative use-case 
+wherein a researcher does not start from a particular 
+book but rather visits a web portal to find materials 
+on a topic that interests them.  Figure~\ref{fig:ss6} 
+shows a hypothetical web front-end along with a 
+screenshot with an example of two books from the 
+same series, that could be linked by behind-the-scenes 
+searches.}
+
 
 \p{Existing bibliographic aggregators, such as Dimensions, pair \API{} protocols with 
 customized query languages for bibliographic databases.  To support such technology, 
@@ -682,6 +725,14 @@ deployed online --- encapsulate many details of meta-index management, database
 admin, and \API{} support, with significant code reuse between native/desktop 
 clients and \API{}/cloud server endpoints.}
 
+
+\begin{figure}[ht]
+\includegraphics[scale=0.5]{fin/oct.png}
+\caption{Flexible range-select features}
+\label{fig:ss7}
+\end{figure}
+
+%\vspace*{.5em}
 
 \sstitle{Use Case 6: Machine-Readable Text Encoding}
 
@@ -710,7 +761,7 @@ and via \API{}s.} %\newpage{}
 \p{Rigorous text encoding can also improve User Experience working locally 
 with \PDF{} files.  For example, users could copy the text of a full 
 sentence where a match occurs --- not just the search term itself --- with a single 
-button-click.  Figure~\ref{fig:ss6} shows a range-select option that syncs mouse drags with key-presses to select a multi-line area that extends to the margins in the middle lines (a useful alternative to ordinary \PDF{} ranges that can only be a simple rectangular box, thereby either cutting important words from left or right or including extraneous words around the range's start and end, which makes it difficult to 
+button-click.  Figure~\ref{fig:ss7} shows a range-select option that syncs mouse drags with key-presses to select a multi-line area that extends to the margins in the middle lines (a useful alternative to ordinary \PDF{} ranges that can only be a simple rectangular box, thereby either cutting important words from left or right or including extraneous words around the range's start and end, which makes it difficult to 
 select a full sentence or other meaningful unit of text).  
 Advanced \GUI{} programming in conjunction with machine-readable 
 text encoding permits users to accomplish their goals in find, copy, and remote-search 
@@ -719,14 +770,14 @@ functionality with less hassle than traditional \PDF{} viewers
 
 \begin{figure}[ht]
 \includegraphics[scale=0.45]{fin/ling.png}
-\caption{Enhanced \GUI{} capabilities enabled by machine-readable text encoding}
-\label{fig:ss7}
+\caption{Enhanced GUI capabilities enabled by machine-readable text encoding}
+\label{fig:ss8}
 \end{figure}
 
 
-
+\vspace*{6pt}
 \sstitle{Use Case 7: Rigorous Text Mining}
-
+\vspace*{3pt}
 
 \p{The limitations of \PDF{} text encoding serve as a hindrance to advanced text-mining 
 algorithms.  These lacunae became evident during the Covid pandemic, when scientists sought to 
@@ -760,7 +811,11 @@ specify that the content of footnotes or block quotes inside the sentence
 should be included.  Or, the preliminary language preceding an enumerated or 
 bulleted list might be considered a single sentence (even if it ends with a 
 colon rather than perion), but in some contexts that preamble together 
-with the overall list serve as an aggregate sentence.}
+with the overall list serve as an aggregate sentence.  Apart from intra-document 
+queries, such granular discursive constructs can be addressed by plugins to 
+search-engine tools that could be employed as meta-index back-ends 
+(see Figure~\ref{fig:ss9}).
+}
 
 \p{In short, rhetorical features such as footnotes, quotes, figure illustrations, 
 enumerations, and itemized lists all represent discursive structures that complicate the 
@@ -771,27 +826,21 @@ content within figures/diagrams, and annotations/comments, as well
 as document text in general.  Query protocols 
 should therefore recognize a plurality of discursive structures both to 
 establish search parameters and to clarify the desired scope for contextual 
-data (the screenshot in Figure~\ref{fig:ss7} presents a visual example).  
+data (the screenshot in Figure~\ref{fig:ss8} presents a visual example).  
 These details can be exposed to \API{}s via \PacTk{}'s \BdQS{} framework.}
 
 \begin{figure}[h!]
 \includegraphics[scale=0.66, trim=8.4cm 0 0 0, clip]{fin/pisa.png}
 \caption{Configuring Default Back-End Queries}
-\label{fig:ss8}
-\end{figure}
-
-
-\begin{figure}[t!]
-\includegraphics[scale=0.5]{fin/stark-mi.png}
-\includegraphics[scale=0.5]{fin/stark.png}
-\caption{Meta-Index Search through a Web Portal}
 \label{fig:ss9}
 \end{figure}
 
 
 
 
-\vspace*{10pt}
+\vspace*{20pt}
+
+
 %{\semihr{0.13\textwidth}}
 {\semihr{0.197\textwidth}}
 \vspace*{5pt}
@@ -800,7 +849,7 @@ These details can be exposed to \API{}s via \PacTk{}'s \BdQS{} framework.}
 \vspace*{5pt}
 {\semihr{0.197\textwidth}}
 
-\vspace*{5pt}
+\vspace*{11pt}
 
 \sstitle{Use Case 8: Deserializing Data Files}
 
@@ -1073,7 +1122,7 @@ employing \BdQS{} for bibliographic queries and deserialization,
 data-publishing curators may benefit from a \BdQS{} scripting 
 environment for analytic and \GUI{}-integration tasks.}
 
-\vspace*{8pt}
+\vspace*{11pt}
 
 {\semihr{0.097\textwidth}}
 \vspace*{4pt}
